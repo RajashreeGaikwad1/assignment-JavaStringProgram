@@ -6,36 +6,37 @@ import java.util.Set;
 
 public class ArrayProgram8 
 {
-		public static void count(String str)
-		{
-			int vow = 0, con = 0;
-		
-			String ref = "aeiouAEIOU";
-		
-			for (int i = 0; i < str.length(); i++) 
-			{
-				
-				if ((str.charAt(i) >= 'A'
-					&& str.charAt(i) <= 'Z')
-					|| (str.charAt(i) >= 'a'
-						&& str.charAt(i) <= 'z')) {
-					if (ref.indexOf(str.charAt(i)) != -1)
-						System.out.print(str.charAt(i));
-					else
-						System.out.print(str.charAt(i));
-					
-				}
-			}
-		
-			System.out.println("Number of Vowels = " + vow
-							+ "\nNumber of Consonants = "
-							+ con);
-		}
+	String str = "SHUBHAngiKamble";
+	char[] charArr = str.toCharArray();
 
-		public static void main(String[] args)
-		{
-			String str = "#GeeksforGeeks";
-		
-			count(str);
+	int count = 10;
+	int k = 0;
+	char[] resultArray = new char[charArr.length];
+	
+	for (int i = 0; i < charArr.length; i++) {
+		char c = charArr[i];
+		if (c == 'a' || c == 'A' || c == 'E' || c == 'e' || c == 'i' || c == 'I' || c == 'o' || c == 'O' || c == 'u'
+				|| c == 'U') {
+
+			resultArray[k] = charArr[i];
+			charArr[i] = '*';
+			k++;
 		}
+	}
+	
+	for (int i = 0; i < charArr.length; i++)
+	{
+		char c = charArr[i];
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+			resultArray[k] = charArr[i];
+			k++;
+		}
+	}
+	
+	charArr=resultArray;
+	for (char ch : charArr) {
+		System.out.print(ch + "");
+	}
+}
+
 }
